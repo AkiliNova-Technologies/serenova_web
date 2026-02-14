@@ -60,7 +60,10 @@ export default function Footer() {
               <div className="text-center md:text-left">
                 <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 justify-center md:justify-center">
                   <Sparkles size={12} className="sm:hidden text-gold-light" />
-                  <Sparkles size={16} className="hidden sm:block text-gold-light" />
+                  <Sparkles
+                    size={16}
+                    className="hidden sm:block text-gold-light"
+                  />
                   <span className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[2px] sm:tracking-[2.5px] md:tracking-[3px] text-gold-light/80 font-bold">
                     Wellness Newsletter
                   </span>
@@ -223,7 +226,9 @@ export default function Footer() {
                     className="hidden sm:block text-gold-light mt-0.5 group-hover/contact:scale-110 transition-transform"
                   />
                 </div>
-                <span className="text-center sm:text-left">4517 Wellness Ave, Manchester, Kentucky 39495</span>
+                <span className="text-center sm:text-left">
+                  4517 Wellness Ave, Manchester, Kentucky 39495
+                </span>
               </li>
               <li className="group/contact flex items-start gap-2 sm:gap-3 text-cream/50 text-[12px] sm:text-[13px] md:text-[14px] justify-start sm:justify-start">
                 <div className="relative flex-shrink-0">
@@ -303,17 +308,6 @@ export default function Footer() {
                 ),
               )}
             </div>
-          </div>
-
-          {/* Floating back to top button - hidden on mobile */}
-          <div className="absolute right-4 sm:right-6 bottom-6 sm:bottom-7 md:bottom-8 hidden sm:block">
-            <a href="#top" className="group/top relative">
-              <div className="absolute inset-0 bg-gold-light/20 rounded-full blur-lg opacity-0 group-hover/top:opacity-100 transition-opacity" />
-              <div className="relative w-9 sm:w-10 h-9 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-start hover:bg-gold-light hover:border-gold-light hover:text-forest-dark transition-all">
-                <ArrowRight size={14} className="sm:hidden rotate-[-90deg]" />
-                <ArrowRight size={16} className="hidden sm:block rotate-[-90deg]" />
-              </div>
-            </a>
           </div>
         </div>
       </div>
