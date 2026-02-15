@@ -230,17 +230,47 @@ function BookingContent() {
     setSelectedService(e.target.value);
   };
 
+const buildWhatsAppMessage = () => {
+  const lines = [
+    "*New Booking Request — Serenova Wellness*",
+    "",
+    `- Service: ${bookingType.title}`,
+    `- Duration: ${bookingType.duration}`,
+    `- Date: ${formatDisplayDate(selectedDate)}`,
+    `- Time: ${selectedTime}`,
+    "",
+    "Client Details",
+    `- Name: ${formData.name}`,
+    `- Phone: ${formData.phone}`,
+    `- Email: ${formData.email}`,
+  ];
+
+  if (formData.notes) {
+    lines.push("", "Notes:", formData.notes);
+  }
+
+  return encodeURIComponent(lines.join("\n"));
+};
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    // Simulate API call
+    const message = buildWhatsAppMessage();
+
+    // Your business WhatsApp number (international format, no +)
+    const whatsappNumber = "256789874647";
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    // Small delay for UX polish
     setTimeout(() => {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1500);
+      window.location.href = whatsappUrl;
+    }, 800);
   };
 
   if (isSuccess) {
@@ -256,7 +286,10 @@ function BookingContent() {
           <div className="relative z-10">
             <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-5 md:mb-6">
               <CheckCircle size={28} className="sm:hidden text-forest" />
-              <CheckCircle size={32} className="hidden sm:block md:hidden text-forest" />
+              <CheckCircle
+                size={32}
+                className="hidden sm:block md:hidden text-forest"
+              />
               <CheckCircle size={40} className="hidden md:block text-forest" />
             </div>
 
@@ -365,8 +398,9 @@ function BookingContent() {
               Book Your Appointment
             </h1>
 
-            <p className="text-text-body text-[13px] sm:text-[14px] md:text-[15px] max-w-[540px] mx-auto px-3 sm:px-0">
-              Fill in the details below and we'll confirm your booking via email
+            <p className="text-text-body ...">
+              Fill in the details below and you’ll be redirected to WhatsApp to
+              send your booking request
             </p>
           </div>
 
@@ -435,7 +469,9 @@ function BookingContent() {
                         <CalendarIcon className="mr-1.5 sm:mr-2 h-3 sm:h-4 w-3 sm:w-4 text-forest/40" />
                         <span
                           className={
-                            selectedDate ? "text-charcoal text-xs sm:text-sm" : "text-text-muted text-xs sm:text-sm"
+                            selectedDate
+                              ? "text-charcoal text-xs sm:text-sm"
+                              : "text-text-muted text-xs sm:text-sm"
                           }
                         >
                           {selectedDate
@@ -499,7 +535,11 @@ function BookingContent() {
                     </SelectTrigger>
                     <SelectContent className="rounded-lg sm:rounded-xl border-border-soft max-h-56 sm:max-h-60 md:max-h-64">
                       {timeSlots.map((time) => (
-                        <SelectItem key={time} value={time} className="py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm">
+                        <SelectItem
+                          key={time}
+                          value={time}
+                          className="py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm"
+                        >
                           {time}
                         </SelectItem>
                       ))}
@@ -720,7 +760,9 @@ export default function BookingPage() {
           <div className="min-h-screen bg-ivory flex items-center justify-center">
             <div className="text-center px-4 sm:px-6">
               <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-4 border-forest/20 border-t-forest rounded-full animate-spin mx-auto mb-3 sm:mb-4" />
-              <p className="text-forest/60 text-xs sm:text-sm">Loading booking form...</p>
+              <p className="text-forest/60 text-xs sm:text-sm">
+                Loading booking form...
+              </p>
             </div>
           </div>
         }
