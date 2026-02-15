@@ -58,7 +58,7 @@ export default function Footer() {
           <div className="relative">
             <div className="relative flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8 z-10">
               <div className="text-center md:text-left">
-                <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 justify-center md:justify-center">
+                <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 justify-center md:justify-center lg:justify-start">
                   <Sparkles size={12} className="sm:hidden text-gold-light" />
                   <Sparkles
                     size={16}
@@ -168,7 +168,7 @@ export default function Footer() {
 
           {/* Quick Links - Enhanced */}
           <div className="text-left sm:text-left">
-            <h5 className="flex items-start gap-2 text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[1.5px] sm:tracking-[2px] font-bold text-cream mb-4 sm:mb-5 md:mb-6 justify-start sm:justify-start">
+            <h5 className="flex items-center gap-2 text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[1.5px] sm:tracking-[2px] font-bold text-cream mb-4 sm:mb-5 md:mb-6 justify-start sm:justify-start">
               <div className="w-3 sm:w-4 h-px bg-gold-light/50 hidden sm:block" />
               Quick Links
             </h5>
@@ -189,7 +189,7 @@ export default function Footer() {
 
           {/* Services - Enhanced */}
           <div className="text-left sm:text-left">
-            <h5 className="flex items-start gap-2 text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[1.5px] sm:tracking-[2px] font-bold text-cream mb-4 sm:mb-5 md:mb-6 justify-start sm:justify-start">
+            <h5 className="flex items-center gap-2 text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[1.5px] sm:tracking-[2px] font-bold text-cream mb-4 sm:mb-5 md:mb-6 justify-start sm:justify-start">
               <div className="w-3 sm:w-4 h-px bg-gold-light/50 hidden sm:block" />
               Services
             </h5>
